@@ -1,6 +1,5 @@
 # Use a lighter version of Node as a parent image
-FROM mhart/alpine-node:8.11.4
-
+FROM mhart/alpine-node:12
 
 # Set the working directory to /api
 WORKDIR /api

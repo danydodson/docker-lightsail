@@ -1,7 +1,7 @@
 version: "2"
 services:
     client:
-        image: mhart/alpine-node:6.8.0
+        image: webapp-client
         restart: always
         ports:
             - "3000:3000"
@@ -12,9 +12,9 @@ services:
         links:
             - api
         networks:
-            - webappnetwork
+            - webapp-network
     api:
-        image: webapp-api
+        image: awebapp-api
         restart: always
         ports:
             - "9000:9000"
@@ -24,7 +24,7 @@ services:
         depends_on:
             - mongodb
         networks:
-            - webappnetwork
+            - webapp-network
     mongodb:
         image: mongo
         restart: always
@@ -33,9 +33,9 @@ services:
             - ./data-node:/data/db
         ports:
             - 27017:27017
-        command: mongod --noauth --smallfiles
+        command: mongod --noauth
         networks:
-            - webappnetwork
+            - webapp-network
 networks:
-    webappnetwork:
+    webapp-network:
         driver: bridge

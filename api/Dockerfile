@@ -8,7 +8,7 @@ WORKDIR /api
 COPY package*.json /api/
 
 # install dependencies
-RUN npm install
+RUN yarn install
 
 # Copy the current directory contents into the container at /api
 COPY . /api/
@@ -17,4 +17,4 @@ COPY . /api/
 EXPOSE 80
 
 # Run the app when the container launches
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

@@ -8,13 +8,13 @@ services:
         working_dir: /client/src/app
         volumes:
             - ./client:/client/src/app
-        entrypoint: ["npm", "start"]
+        entrypoint: ["yarn", "start"]
         links:
             - api
         networks:
             - webapp-network
     api:
-        image: awebapp-api
+        image: webapp-api
         restart: always
         ports:
             - "9000:9000"

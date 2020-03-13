@@ -10,7 +10,13 @@ router.get("/", function (req, res, next) {
 })
 
 // Connecting to MongoDB
-mongoose.connect("mongodb://mongodb:27017/test", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(
+    "mongodb://mongodb:27017/test",
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+)
 
 // If there is a connection error send an error message
 mongoose.connection.on("error", error => {
